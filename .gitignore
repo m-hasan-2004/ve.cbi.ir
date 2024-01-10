@@ -1,2 +1,5 @@
-/needed_files
+needed_files/
 __pycache__/
+managed_context/
+test_suite_analysis/
+

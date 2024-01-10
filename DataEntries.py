@@ -1,13 +1,17 @@
 #! /usr/bin/venv/python3
 """
-a module that contains a class for user inputs
+a module that contains a class for user using the app to inputs data
+    * Have methods to verify give data
 """
-class SignupInputs:
+class UserInputs:
     """
     A class that contains attributes of user signup for a loan.
     These attributes are entered by the user with input validation.
+        Have 2 static methods to verify the input data based on the data type.
     """
-    CAPTCHA_VALUE = "60"  # Get from API solver
+    captcha_value_first_page = ""
+    captcha_value_second_page = ""
+    captcha_value_third_page = ""
 
     def __init__(self):
         self.national_code = self.get_input("National code: ")
@@ -19,7 +23,7 @@ class SignupInputs:
         self.marriage_month = self.get_input("Marriage month: ")
         self.marriage_year = self.get_input("Marriage year: ")
         self.city = self.get_string_input("City: ")
-        self.submit_button = ""  # To be continued
+        self.submit_button = ""
 
     @staticmethod
     def get_input(prompt):
