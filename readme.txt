@@ -1,6 +1,5 @@
 *** important ***
-    * making the main file function based not bullshit based in the first opportunity
-
+   
 """general""" 
     "one" - need to user a api to solve captcha
     "two" - 3 captchas are in need to be solved

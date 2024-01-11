@@ -19,5 +19,9 @@ class TagsId:
     marriage_year = "ctl00$ContentPlaceHolder1$tbMarrYear"
     city = "ctl00$ContentPlaceHolder1$ddlState" #‌ city of living and bank of user
     captcha_image_page1 = "" # add url later and send to class of APISolver (Hasen't Created)
-    captcha_page1 = "ctl00$ContentPlaceHolder1$tbCaptcha" # captcha Field
+    captcha_image_page2 = "" # add url later and send to class of APISolver (Hasen't Created)
+    captcha_image_page3 = "" # add url later and send to class of APISolver (Hasen't Created)
+    captcha_field_page1 = "ctl00$ContentPlaceHolder1$tbCaptcha" # captcha Field
+    captcha_field_page2 = "" # captcha Field
+    captcha_field_page3 = "" # captcha Field
     submit_button_page2 = "ctl00$ContentPlaceHolder1$btnContinue1" # button to submit for second page

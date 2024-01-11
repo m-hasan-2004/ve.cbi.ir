@@ -12,67 +12,44 @@ this is the main file of the project
 """
 
 # importing necessary libraries
-import time
-from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC   
 # self wrote Modules and Packages  
-from HTMLTagsId import TagsId
-from DataEntries import UserInputs
-
-# getting the chrome location
-Chrome_Location = input("enter location of chromedriver: ") or '/home/hasan/Desktop/py/Automated-VECBI/needed_files/chromedriver' 
-
-# UserInputs_data -> instance creating
-UserInputs_data = UserInputs()    
-
-# Start the Chrome browser (you can use other browsers by changing webdriver.Chrome to webdriver.Firefox, etc.)
-service = Service(executable_path=Chrome_Location)
-driver = webdriver.Chrome(service=service)
+from HTMLTagsId import TagsId # HTML Tags
+# Inputs that user should enter
+from second_page_m import second_page_data_finding_entring as data_f_and_e
+from second_page_m import second_page_captcha_solver as c_solve
+from second_page_m import second_page_sumbit_end as submit_end
+from second_page_m import UserInputs_data
+from second_page_m import driver, service
 
 
-# second page of website signup 
-try:
-    # Open the signup page
-    driver.get(TagsId.url)
-    time.sleep(0)
+# second page data finding variables
+ncode = TagsId.national_code
+url = TagsId.url
+Phone = TagsId.phone_number
+birthd = TagsId.birth_day
+birthm = TagsId.birth_month
+birthy = TagsId.birth_year
+marriaged = TagsId.marriage_day
+marriagem = TagsId.marriage_month
+marriagey = TagsId.marriage_year
+city = TagsId.city
+captchafieldp2 = TagsId.captcha_field_page2
+sleep_1 = int(input("custom sleep 'sec': "))
+sleep_2 = int(input("custom sleep 'sec': "))
+# second page captcha
+# ----------------
+captchavaluep2 = UserInputs_data.captcha_value_second_page
+# ----------------
 
-    # Find the form fields and input data
-    national_field = driver.find_element(By.NAME, TagsId.national_code)
-    phone_field = driver.find_element(By.NAME, TagsId.phone_number)
-    birth_day_field = driver.find_element(By.NAME, TagsId.birth_day)
-    birth_month_field = driver.find_element(By.NAME, TagsId.birth_month)
-    birth_year_field = driver.find_element(By.NAME, TagsId.birth_year)
-    marriage_day_field = driver.find_element(By.NAME, TagsId.marriage_day)
-    marriage_month_field = driver.find_element(By.NAME, TagsId.marriage_month)
-    marriage_year_field = driver.find_element(By.NAME, TagsId.marriage_year)
-    city_field = driver.find_element(By.NAME, TagsId.city)
-    captcha_field = driver.find_element(By.NAME, TagsId.captcha_page1) 
+# second page submit variables
+submitf1 = TagsId.submit_button_page2
 
-    # Input the data
-    national_field.send_keys(UserInputs_data.national_code)
-    phone_field.send_keys(UserInputs_data.phone_number)
-    # birth_day_field.send_keys(UserInputs_data.birth_day)
-    # birth_month_field.send_keys(UserInputs_data.birth_month)
-    birth_year_field.send_keys(UserInputs_data.birth_year)
-    # marriage_day_field.send_keys(UserInputs_data.marriage_day)
-    # marriage_month_field.send_keys(UserInputs_data.marriage_month)
-    marriage_year_field.send_keys(UserInputs_data.marriage_year)
-    # city_field.send_keys(UserInputs_data.city)
-    captcha_field.send_keys(UserInputs_data.captcha_value_second_page)
-    # ...
-    time.sleep(10)
-    # Submit the form
-    submit_button = driver.find_element(By.NAME, TagsId.submit_button_page2)
-    submit_button.click()
 
-    # Wait for the signup process to complete (you might need to adjust the wait time)
-    WebDriverWait(driver, 10).until(EC.url_changes(TagsId.url))
 
-    # You can add further verification steps here if needed
+# starting services 
+service = service
+driver = driver
 
-finally:
-    # Close the browser window
-    driver.quit()
+data_f_and_e(url, ncode, Phone, birthd, birthm, birthy, marriaged, marriagem, marriagey, city, captchafieldp2, sleep_1, sleep_2)
+# c_solve(captchafieldp2)
+# submit_end(submitf1)
