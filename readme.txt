@@ -1,5 +1,10 @@
 *** important ***
-   
+    created the captcha solver
+    remain:
+        captcha downloader
+        captcha solved str sender
+        captcha sovled str entring add try | excepts
+
 """general""" 
     "one" - need to user a api to solve captcha
     "two" - 3 captchas are in need to be solved

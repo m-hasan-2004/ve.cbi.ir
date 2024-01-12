@@ -9,9 +9,6 @@ class UserInputs:
     These attributes are entered by the user with input validation.
         Have 2 static methods to verify the input data based on the data type.
     """
-    captcha_value_first_page = ""
-    captcha_value_second_page = ""
-    captcha_value_third_page = ""
 
     def __init__(self):
         self.national_code = self.get_input("National code: ")

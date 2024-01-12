@@ -38,7 +38,7 @@ sleep_1 = int(input("custom sleep 'sec': "))
 sleep_2 = int(input("custom sleep 'sec': "))
 # second page captcha
 # ----------------
-captchavaluep2 = UserInputs_data.captcha_value_second_page
+captchavaluep2 = ""
 # ----------------
 
 # second page submit variables
@@ -51,5 +51,4 @@ service = service
 driver = driver
 
 data_f_and_e(url, ncode, Phone, birthd, birthm, birthy, marriaged, marriagem, marriagey, city, captchafieldp2, sleep_1, sleep_2)
-# c_solve(captchafieldp2)
 # submit_end(submitf1)
