@@ -1,7 +1,7 @@
 *** important ***
-    created the captcha solver
+    code is too messy
     remain:
-        captcha downloader
+        captch downloader integration
         captcha solved str sender
         captcha sovled str entring add try | excepts
 
