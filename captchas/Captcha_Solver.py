@@ -1,27 +1,33 @@
-#! usr/bin/venv/python3
-""" this is a module that solves captcha using jpeg file and return a string of result
-        * needs captcha_downloader.py to download captcha image
-"""
-#imports to use
-import sys
+# importing necessary external libraries
+from twocaptcha import TwoCaptcha
 import os
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+def solve_captcha(api_key, image_path):
+    """
+    Solves captcha using a JPEG file and returns a string of the result.
 
-from twocaptcha import TwoCaptcha
+    Parameters:
+    - api_key (str): 2Captcha API key.
+    - image_path (str): Path to the captcha image file (JPEG).
+
+    Returns:
+    - str: Captcha solution or an error message.
+    """
+    solver = TwoCaptcha(api_key)
+    
+    try:
+        result = solver.normal(image_path)
+        return str(result)
+
+    except Exception as e:
+        return str(e)
 
 api_key = os.getenv('8e9fa4bfe71cafe2df2e1f32ad64dd5e', '8e9fa4bfe71cafe2df2e1f32ad64dd5e')
+image_path = '/home/hasan/Desktop/py/Automated-VECBI/captchas/captcha_image.jpg'
 
-solver = TwoCaptcha(api_key)
+captcha_solution = solve_captcha(api_key, image_path)
 
-try:
-    result = solver.normal('./captchas/captcha_image.jpg')
-
-except Exception as e:
-    sys.exit(e)
-
+if captcha_solution.startswith('solved:'):
+    print("Captcha solution:", captcha_solution)
 else:
-    sys.exit('solved: ' + str(result))
-    
-# finally:
-#     os.remove('./captchas/captcha_image.jpg')
+    print("Error:", captcha_solution)

@@ -1,6 +1,5 @@
-#! usr/bin/venv/python3
-
-# importing necessary libraries
+#!/usr/bin/python3
+# importing necessary built-in libraries
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,8 +12,9 @@ from HTMLTagsId import TagsId # HTML Tags
 from DataInputs import UserInputs # Inputs that user should enter
 
 # Functions 
-def chrome_location(chrome_location):
+def chrome_location_func(chrome_location):
     return chrome_location
+
 def second_page_data_finding_entring(
     url: str, ncode: str, phone: str, bday: str, bmonth: str, byear: str,
     mday: str, mmonth: str, myear: str, city: str , captchf2: str, sleep_1: int, sleep_2: int):
@@ -50,25 +50,28 @@ def second_page_data_finding_entring(
         time.sleep(sleep_2)
     except Exception as e:
         print(f"something went wrong find and enter level: {e}")
-def second_page_captcha_solver():
-    time.sleep(5)
+
+def captcha_downloader():
+    # Wait until the captcha image element is present
     captcha_image_element = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.ID, TagsId.captcha_id_page2)))
-    
+        EC.presence_of_element_located((By.ID, TagsId.captcha_id_page2))
+    )
+
+    # Find the captcha image element by ID
     captcha_image_element = driver.find_element(By.ID, TagsId.captcha_id_page2)
 
     # Get the source URL of the captcha image
     captcha_image_url = captcha_image_element.get_attribute('src')
 
     # Download the captcha image
-    urllib.request.urlretrieve(captcha_image_url, '/home/hasan/Desktop/py/Automated-VECBI/captchas/captcha_image.jpg')
+    urllib.request.urlretrieve(str(captcha_image_url), '/home/hasan/Desktop/py/Automated-VECBI/captchas/captcha_image.jpg')
 
     print("Captcha image downloaded successfully.")
-    
-    driver.quit()
-    # captcha_field.send_keys(captchavaluep2)
 
-def second_page_sumbit_end(submitf1: str):
+def second_page_captcha_solver():
+    pass
+
+def second_page_sumbit_and_end(submitf1: str):
     try:
         # Submit the form
         submit_button = driver.find_element(By.NAME, submitf1)
@@ -84,13 +87,14 @@ def second_page_sumbit_end(submitf1: str):
         # Close the browser window
         driver.quit()
 
+
 # UserInputs_data class -> instance creating
 UserInputs_data = UserInputs()    
 
 # getting the chrome location
-Chrome_Location_Res = chrome_location('/home/hasan/Desktop/py/Automated-VECBI/needed_files/chromedriver')
+Chrome_Location = chrome_location_func('/home/hasan/Desktop/py/Automated-VECBI/needed_files/chromedriver')
 
 
 # service and driver
-service = Service(executable_path=Chrome_Location_Res)
+service = Service(executable_path=Chrome_Location)
 driver = webdriver.Chrome(service=service)

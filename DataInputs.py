@@ -1,4 +1,4 @@
-#! /usr/bin/venv/python3
+#!/usr/bin/python3
 """
 a module that contains a class for user using the app to inputs data
     * Have methods to verify give data

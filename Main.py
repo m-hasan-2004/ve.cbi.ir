@@ -1,4 +1,4 @@
-#! /usr/bin/venv/python3
+#!/usr/bin/python3
 """
 this is the main file of the project
     using selenuim to automate the process of filling up the form of VECBI website for marriage loan
@@ -10,16 +10,17 @@ this is the main file of the project
             * Second page of Signup is for entering the personal information such as national code, phone number, birth date, etc.
                 * third page is for choosing the extra info such as bank, bank branch, etc. 
 """
+# importing necessary built-in libraries
 
-# importing necessary libraries
 # self wrote Modules and Packages  
 from HTMLTagsId import TagsId # HTML Tags
 # Inputs that user should enter
 from second_page_m import second_page_data_finding_entring as data_f_and_e
-from second_page_m import second_page_captcha_solver as c_solve
-from second_page_m import second_page_sumbit_end as submit_end
-from second_page_m import UserInputs_data
+# automateds
+from second_page_m import second_page_captcha_solver as ca_solve
+from second_page_m import second_page_sumbit_and_end as submit_end
 from second_page_m import driver, service
+from second_page_m import captcha_downloader as captcha_d
 
 
 # second page data finding variables
@@ -50,5 +51,10 @@ submitf1 = TagsId.submit_button_page2
 service = service
 driver = driver
 
-data_f_and_e(url, ncode, Phone, birthd, birthm, birthy, marriaged, marriagem, marriagey, city, captchafieldp2, sleep_1, sleep_2)
+data_f_and_e(
+    url, ncode, Phone, birthd, birthm, birthy, marriaged,
+    marriagem, marriagey, city, captchafieldp2, sleep_1,
+    sleep_2)
+captcha_d()
+# ca_solve()
 # submit_end(submitf1)

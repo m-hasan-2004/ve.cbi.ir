@@ -1,5 +1,7 @@
 *** important ***
     code is too messy
+    captcha sovler should user a while loop and be imported into second page modoules
+    spliting the big files like second page m to different functions and .py files
     remain:
         captch downloader integration
         captcha solved str sender

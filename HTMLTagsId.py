@@ -1,4 +1,4 @@
-#! /usr/bin/venv/python3
+#!/usr/bin/python3
 """
 a module that contains a class of HTML Elements location for user data to be entered
     * this module is imported by the main .py file to use the contents of class
@@ -7,6 +7,7 @@ a module that contains a class of HTML Elements location for user data to be ent
 class TagsId:
     """
     A class that contains attributes of HTML Elements location for user data to be entered.
+    NAME for Everything except the captchas that use ID
     """
     url = "https://ve.cbi.ir/TasRequest.aspx" # url of website to signup 
     national_code = "ctl00$ContentPlaceHolder1$tbIDNo" 
