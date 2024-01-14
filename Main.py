@@ -10,17 +10,23 @@ this is the main file of the project
             * Second page of Signup is for entering the personal information such as national code, phone number, birth date, etc.
                 * third page is for choosing the extra info such as bank, bank branch, etc. 
 """
-# importing necessary built-in libraries
+# imports
+import os
 
 # self wrote Modules and Packages  
-from HTMLTagsId import TagsId # HTML Tags
-# Inputs that user should enter
-from second_page_m import second_page_data_finding_entring as data_f_and_e
-# automateds
-from second_page_m import second_page_captcha_solver as ca_solve
-from second_page_m import second_page_sumbit_and_end as submit_end
-from second_page_m import driver, service
-from second_page_m import captcha_downloader as captcha_d
+from Modules import (
+    solve_captcha,
+    TagsId,
+)
+
+from Modules.second_page_m import (
+    second_page_data_finding_entring as data_f_and_e,
+    second_page_captcha_solver as cap_solve,
+    second_page_sumbit_and_end as submit_end,
+    driver,
+    service,
+    captcha_downloader as captcha_down
+)
 
 
 # second page data finding variables
@@ -35,8 +41,8 @@ marriagem = TagsId.marriage_month
 marriagey = TagsId.marriage_year
 city = TagsId.city
 captchafieldp2 = TagsId.captcha_field_page2
-sleep_1 = int(input("custom sleep 'sec': "))
-sleep_2 = int(input("custom sleep 'sec': "))
+sleep_1 = 5
+sleep_2 = 5
 # second page captcha
 # ----------------
 captchavaluep2 = ""
@@ -45,7 +51,16 @@ captchavaluep2 = ""
 # second page submit variables
 submitf1 = TagsId.submit_button_page2
 
+# captcha solving using func imported
+api_key = os.getenv('8e9fa4bfe71cafe2df2e1f32ad64dd5e', '8e9fa4bfe71cafe2df2e1f32ad64dd5e')
+image_path = '/home/hasan/Desktop/py/Automated-VECBI/CaptchasPic/captcha_page2.jpg'
 
+captcha_solution = solve_captcha(api_key, image_path)
+
+if captcha_solution.startswith('solved:'):
+    print("Captcha solution:", captcha_solution)
+else:
+    print("Error:", captcha_solution)
 
 # starting services 
 service = service
@@ -55,6 +70,6 @@ data_f_and_e(
     url, ncode, Phone, birthd, birthm, birthy, marriaged,
     marriagem, marriagey, city, captchafieldp2, sleep_1,
     sleep_2)
-captcha_d()
-# ca_solve()
+captcha_down()
+# cap_solve()
 # submit_end(submitf1)
