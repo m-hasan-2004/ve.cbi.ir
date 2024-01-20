@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC  
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import urllib.request
 # self wrote Modules and Packages  
 from .HTMLTagsId import TagsId # HTML Tags
@@ -17,7 +18,7 @@ def chrome_location_func(chrome_location):
 
 def second_page_data_finding_entring(
     url: str, ncode: str, phone: str, bday: str, bmonth: str, byear: str,
-    mday: str, mmonth: str, myear: str, city: str , captchf2: str, sleep_1: int, sleep_2: int):
+    mday: str, mmonth: str, myear: str, city: str , captchf2: str, sleep_1: int, sleep_2: int) -> None:
     # second page of website signup 
     try:
         # Open the signup page
@@ -68,17 +69,17 @@ def captcha_downloader():
 
     print("Captcha image downloaded successfully.")
 
-def second_page_sumbit_and_end(submitf1: str):
+def second_page_submit_and_end(submitf1: str):
     try:
         # Submit the form
         submit_button = driver.find_element(By.NAME, submitf1)
         submit_button.click()
 
         # Wait for the signup process to complete (you might need to adjust the wait time)
-        WebDriverWait(driver, 10).until(EC.url_changes(TagsId.url))
+        WebDriverWait(driver, 200).until(EC.url_changes(TagsId.url))
 
     except Exception:
-        print("something went wrong")
+        print("something went wrong | second page sumbit and end")
 
     finally:
         # Close the browser window

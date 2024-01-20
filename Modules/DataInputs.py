@@ -14,10 +14,10 @@ class UserInputs:
         self.national_code = self.get_input("National code: ")
         self.phone_number = self.get_input("Phone number: ")
         self.birth_day = self.get_input("Birth day: ")
-        self.birth_month = self.get_input("Birth month: ")
+        self.birth_month = self.get_string_input("Birth month: ")
         self.birth_year = self.get_input("Birth year: ")
         self.marriage_day = self.get_input("Marriage day: ")
-        self.marriage_month = self.get_input("Marriage month: ")
+        self.marriage_month = self.get_string_input("Marriage month: ")
         self.marriage_year = self.get_input("Marriage year: ")
         self.city = self.get_string_input("City: ")
         self.submit_button = ""

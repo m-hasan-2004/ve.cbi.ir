@@ -1,14 +1,20 @@
 *** important ***
     code isn't that bad
-    need to change functions of second page m to get input in the main file - handle imports of second page m
-    captcha sovler should user a while loop and be imported into second page modoules
+    *** setting rulse and verifying the entering of data such as code meli - 10 ch | mobile 11 ch and both latin
+    *** -> birth year 4 ch and birth day <= 2
+    *** for entring the month like farvardin i just need to enter ف for example. for other boxex should work too.
+    *** proxy
     remain:
-        captch downloader integration
-        captcha solved str sender
-        captcha sovled str entring add try | excepts
+        captcha is too slow
+        captcha while loop 
+
+
+""" UI """
+canceld
+
+"""
 
 """general""" 
-    "one" - need to user a api to solve captcha
     "two" - 3 captchas are in need to be solved
         <one at first of openning the site>
         <one at the first page> 
