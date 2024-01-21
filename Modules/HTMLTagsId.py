@@ -9,7 +9,8 @@ class TagsId:
     A class that contains attributes of HTML Elements location for user data to be entered.
     NAME for Everything except the captchas that use ID
     """
-    url = "https://ve.cbi.ir/TasRequest.aspx" # url of website to signup 
+    # main second page
+    url = "https://ve.cbi.ir/TasRequest.aspx"
     national_code = "ctl00$ContentPlaceHolder1$tbIDNo" 
     phone_number = "ctl00$ContentPlaceHolder1$tbMobileNo" 
     birth_day = "ctl00$ContentPlaceHolder1$ddlBrDay" 
@@ -18,11 +19,22 @@ class TagsId:
     marriage_day = "ctl00$ContentPlaceHolder1$ddlMarryDay"
     marriage_month = "ctl00$ContentPlaceHolder1$ddlMarryMonth" 
     marriage_year = "ctl00$ContentPlaceHolder1$tbMarrYear"
-    city = "ctl00$ContentPlaceHolder1$ddlState" #‌ city of living and bank of user
-    captcha_id_page1 = "" # add url later and send to class of APISolver (Hasen't Created)
-    captcha_id_page2 = "ctl00_ContentPlaceHolder1_ImgCaptcha" # add url later and send to class of APISolver (Hasen't Created)
-    captcha_id_page3 = "" # add url later and send to class of APISolver (Hasen't Created)
-    captcha_field_page1 = "ctl00$ContentPlaceHolder1$tbCaptcha" # captcha Field
-    captcha_field_page2 = "" # captcha Field
-    captcha_field_page3 = "" # captcha Field
+    city = "ctl00$ContentPlaceHolder1$ddlState" 
+    # if's second page
+    phone_number_alternetive = "ctl00$ContentPlaceHolder1$tbIDNoOwnerMobile"
+    nationality_iran = "ctl00_ContentPlaceHolder1_rbtnMarrKind1"
+    nationality_afghan = "ctl00_ContentPlaceHolder1_rbtnMarrKind2"
+    nationality_no_religious = "ctl00_ContentPlaceHolder1_rbtnMarrKind3"
+    # captchas element
+    captcha_alt_page1 = "Red dot"
+    captcha_id_page2 = "ctl00_ContentPlaceHolder1_ImgCaptcha"
+    captcha_id_page3 = "" # add url later 
+    
+    # captcha fields "id"
+    captcha_field_page1 = "ans"
+    captcha_field_page2 = "ctl00$ContentPlaceHolder1$tbCaptcha"
+    captcha_field_page3 = "" 
+    
+    # submit buttons
     submit_button_page2 = "ctl00$ContentPlaceHolder1$btnContinue1" # button to submit for second page
+    submit_button_page3 = ""
