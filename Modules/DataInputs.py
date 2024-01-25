@@ -11,37 +11,85 @@ class UserInputs:
     """
 
     def __init__(self):
-        self.national_code = self.get_input("National code: ")
-        self.phone_number = self.get_input("Phone number: ")
-        self.birth_day = self.get_input("Birth day: ")
-        self.birth_month = self.get_string_input("Birth month: ")
-        self.birth_year = self.get_input("Birth year: ")
-        self.marriage_day = self.get_input("Marriage day: ")
-        self.marriage_month = self.get_string_input("Marriage month: ")
-        self.marriage_year = self.get_input("Marriage year: ")
-        self.city = self.get_string_input("City: ")
-        self.submit_button = ""
+        self.national_code = self.get_national_code("National code: ")
+        self.phone_number = self.get_phone_number("Phone number: ")
+        self.birth_day = self.get_day("Birth day: ") 
+        self.birth_month = self.get_month("Birth month: ")
+        self.birth_year = self.get_year("Birth year: ")
+        self.marriage_day = self.get_day("Marriage day: ")
+        self.marriage_month = self.get_month("Marriage month: ")
+        self.marriage_year = self.get_year("Marriage year: ")
+        self.city = self.get_city("City: ")
 
     @staticmethod
-    def get_input(prompt):
-        """
-        Get input from the user and perform input validation.
-        """
-        while True:
-            try:
-                user_input = int(input(prompt))
-                return user_input
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
-
-    @staticmethod
-    def get_string_input(prompt):
-        """
-        Get string input from the user.
+    def get_national_code(prompt: str) -> str:
+        """Get national code from the user and perform input validation.
         """
         while True:
             user_input = input(prompt)
-            if user_input.isalpha():
+            if len(user_input) == 10 and user_input.isdigit():
                 return user_input
             else:
-                print("Invalid input. Please enter a valid string.")
+                print("check again.")             
+
+    @staticmethod
+    def get_phone_number(prompt: str) -> str:
+        """Get phone number the user and perform input validation.
+        """
+        while True:
+            user_input = input(prompt)
+            if len(user_input) == 11 and user_input.isdigit():
+                return user_input
+            else:
+                print("check again.")             
+
+    @staticmethod
+    def get_day(prompt: str) -> str: #1 int - num >= 2 - less than 31
+        """Get day of birth or marriage from the user and perform input validation.
+        """
+        while True:
+            user_input = input(prompt)
+            if (
+                user_input.isdigit() and len(user_input) <= 2
+                and int(user_input) <= 31 and int(user_input) != 0):
+                return user_input
+            else:
+                print("check again.")
+         
+    @staticmethod
+    def get_month(prompt: str) -> str:
+        """Get month of birth or marriage from the user and perform input validation.
+        """
+        while True:
+            user_input = input(prompt)
+            if (
+                user_input.isalpha() and len(user_input) > 2
+                ):
+                return user_input
+            else:
+                print("check again.")
+
+    @staticmethod
+    def get_year(prompt: str) -> str:
+        """Get month of birth or marriage from the user and perform input validation.
+        """
+        while True:
+            user_input = input(prompt)
+            if (
+                user_input.isdigit() and len(user_input) == 4
+                and int(user_input) > 1300
+                ):
+                return user_input
+            else:
+                print("check again.")
+    
+    @staticmethod            
+    def get_city(prompt: str) -> str:
+        """Get city from the user and perform input validation.
+        """
+        while True:
+            user_input = input(prompt)
+            if (user_input.isalpha() and len(user_input) >= 2):
+                return user_input
+            else:
+                print("check again.")
