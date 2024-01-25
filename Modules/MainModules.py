@@ -78,9 +78,10 @@ def second_page_submit_and_captcha(submitf1: str, captcha_result):
 
         # Wait for the signup process to complete (you might need to adjust the wait time)
         WebDriverWait(driver, 100).until(EC.url_changes(TagsId.url))
+        time.sleep(20)
 
-    except Exception:
-        print("something went wrong | second page sumbit and end")
+    except Exception as e:
+        print(f"something went wrong | second page sumbit and end {e}")
 
     finally:
         # Close the browser window
