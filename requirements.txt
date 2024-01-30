@@ -1,0 +1,6 @@
+2captcha-python==1.2.2
+pyarmor.cli.core==5.4.3
+pyarmor==8.4.6
+selenium==4.16.0
+tqdm==4.66.1
+TwoCaptcha==0.0.1

@@ -7,6 +7,7 @@ import os
 
 api_key = "8e9fa4bfe71cafe2df2e1f32ad64dd5e"
 image_path = '/home/hasan/Desktop/py/Automated-VECBI/CaptchasPic/captcha_page2.jpg'
+solver = TwoCaptcha(api_key)
 
 def solve_captcha(
     api_key="8e9fa4bfe71cafe2df2e1f32ad64dd5e",
@@ -21,8 +22,6 @@ def solve_captcha(
     Returns:
     - str: Captcha solution or an error message.
     """
-    solver = TwoCaptcha(api_key)
-    start = time.time() 
     Flag = False
     while not Flag:
         try:
@@ -32,10 +31,12 @@ def solve_captcha(
             print(f"captcha error as {e}")
             time.sleep(2)
             Flag = False
-    end = time.time()
-    print(f"time:{end - start} \ncode: {result['code']}")
     return result['code']
 
+def captcha_balance():
+    balance = solver.balance()
+    print(f"Balance: {balance} dollars")
 
 if __name__ == "__main__":
     solve_captcha(api_key, image_path)
+    captcha_balance()

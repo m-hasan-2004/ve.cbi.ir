@@ -47,12 +47,12 @@ def second_page_data_finding_entring(
         marriage_year_field.send_keys(UserInputs_data.marriage_year)
         city_field.send_keys(UserInputs_data.city)
       
-    except Exception as e:
+    except ValueError as e:
         print(f"something went wrong find and enter level: {e}")
 
 def second_page_captcha_downloader():
     # Wait until the captcha image element is present
-    captcha_image_element = WebDriverWait(driver, 20).until(
+    captcha_image_element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, TagsId.captcha_id_page2))
     )
 
@@ -74,10 +74,12 @@ def second_page_submit_and_captcha(submitf1: str, captcha_result):
         
         # Submit the form
         submit_button = driver.find_element(By.NAME, submitf1)
-        submit_button.click()
+        flag = True
+        while flag:
+            submit_button.click()
 
         # Wait for the signup process to complete (you might need to adjust the wait time)
-        WebDriverWait(driver, 100).until(EC.url_changes(TagsId.url))
+        WebDriverWait(driver, 300).until(EC.url_changes(TagsId.url))
         time.sleep(20)
 
     except Exception as e:
@@ -88,7 +90,7 @@ def second_page_submit_and_captcha(submitf1: str, captcha_result):
         driver.quit()
 
 # UserInputs_data class -> instance creating
-UserInputs_data = UserInputs()    
+UserInputs_data = UserInputs()   
 
 # getting the chrome location
 Chrome_Location = chrome_location_func('/home/hasan/Desktop/py/Automated-VECBI/NeededFiles/chromedriver')

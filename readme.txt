@@ -1,35 +1,22 @@
 *** important ***
-    code isn't that bad
-    *** setting rulse and verifying the entering of data such as code meli - 10 ch | mobile 11 ch and both latin
-    *** -> birth year 4 ch and birth day <= 2
-    *** for entring the month like farvardin i just need to enter ف for example. for other boxex should work too.
-    *** proxy
+    need to change captcha logic to do while loop till answer isn't correct
+    using decorators for time.time to mesuare time of actions taken by programm.
+    code waits and sleep recheck for final product
+    if and else for second page -> phone and nationality (3 choices)
     remain:
-        captcha is too slow
-        captcha while loop 
 
-
-""" UI """
-canceld
-
-"""
-
-"""general""" 
-    "two" - 3 captchas are in need to be solved
-        <one at first of openning the site>
-        <one at the first page> 
-        <one at the end of signup>
-    "tree" - defining the if and else statements for different citizens like afghan
-    "four" - Q&A for how to input day & month & city
-    "five" - use tkinter for user input if necessary 
-    "six"- use if and else for first captcha 
-    "seven" - use if and else for under 18 or not (phone number field changing)
+    use if and else for first captcha 
 
 """third page"""
-    eight - use a countdown to enter message verification
+    eight - use a countdown to enter message verification -> tqdm
     nine - janbazi
     ten - living city
     eleven - national code wife
     twelve - home phone
     Thirteen - address 
     fourteen - zip code
+
+"""final"""
+changing the inputs of driver for windows
+hashing the code and using pyarmor
+creating the exe file and converting the inputs to farsi

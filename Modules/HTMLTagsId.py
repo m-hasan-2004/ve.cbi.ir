@@ -36,5 +36,10 @@ class TagsId:
     captcha_field_page3 = "" 
     
     # submit buttons
+    submit_button_page1_id = "jar"
+    submit_button_page1_type = "button" 
     submit_button_page2 = "ctl00$ContentPlaceHolder1$btnContinue1" # button to submit for second page
     submit_button_page3 = ""
+    
+    # captcha refresh buttons alt
+    captcha_page1 = "bottle" 

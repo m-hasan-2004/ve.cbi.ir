@@ -63,7 +63,7 @@ class UserInputs:
         while True:
             user_input = input(prompt)
             if (
-                user_input.isalpha() and len(user_input) > 2
+                user_input.isalpha() and len(user_input) > 1
                 ):
                 return user_input
             else:

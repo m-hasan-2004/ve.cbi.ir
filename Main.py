@@ -53,7 +53,7 @@ driver = driver
 start_all = time.time()     
 if __name__ == "__main__":
     data_f_and_e(
-        url, str(ncode), str(Phone), birthd, birthm, birthy, marriaged,
+        url, ncode, Phone, birthd, birthm, birthy, marriaged,
         marriagem, marriagey, city, sleep_1,
         sleep_2)
     captcha_down()
