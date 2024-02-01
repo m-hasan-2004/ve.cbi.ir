@@ -18,34 +18,35 @@ def chrome_location_func(chrome_location):
 
 def second_page_data_finding_entring(
     url: str, ncode: str, phone: str, bday: str, bmonth: str, byear: str,
-    mday: str, mmonth: str, myear: str, city: str , sleep_1: int, sleep_2: int) -> None:
+    mday: str, mmonth: str, myear: str, city: str , wait: int) -> None:
     # second page of website signup 
     try:
         # Open the signup page
         driver.get(url)
-        time.sleep(sleep_1)
-        time.sleep(sleep_2)
+        WebDriverWait(driver, wait).until(
+        EC.presence_of_element_located((By.NAME, ncode)))
+        
         # Find the form fields and input data
-        national_field = driver.find_element(By.NAME, ncode)
-        phone_field = driver.find_element(By.NAME, phone)
-        birth_day_field = driver.find_element(By.NAME, bday)
-        birth_month_field = driver.find_element(By.NAME, bmonth)
-        birth_year_field = driver.find_element(By.NAME, byear)
-        marriage_day_field = driver.find_element(By.NAME, mday)
-        marriage_month_field = driver.find_element(By.NAME, mmonth)
-        marriage_year_field = driver.find_element(By.NAME, myear)
-        city_field = driver.find_element(By.NAME, city)
-
-        # Input the data
-        national_field.send_keys(UserInputs_data.national_code)
-        phone_field.send_keys(UserInputs_data.phone_number)
-        birth_day_field.send_keys(UserInputs_data.birth_day)
-        birth_month_field.send_keys(UserInputs_data.birth_month)
-        birth_year_field.send_keys(UserInputs_data.birth_year)
-        marriage_day_field.send_keys(UserInputs_data.marriage_day)
-        marriage_month_field.send_keys(UserInputs_data.marriage_month)
-        marriage_year_field.send_keys(UserInputs_data.marriage_year)
-        city_field.send_keys(UserInputs_data.city)
+        national_field = driver.find_element(By.NAME, ncode).send_keys(UserInputs_data.national_code)
+        if UserInputs_data.phone_ownership == 1:
+            phone_ownership = driver.find_element(By.NAME, phone).send_keys(UserInputs_data.phone_number)
+        elif UserInputs_data.phone_ownership == 2:
+            phone_ownership = driver.find_element(By.NAME, phone).send_keys(UserInputs_data.phone_number)
+         
+        birth_day_field = driver.find_element(By.NAME, bday).send_keys(UserInputs_data.birth_day)
+        birth_month_field = driver.find_element(By.NAME, bmonth).send_keys(UserInputs_data.birth_month)
+        birth_year_field = driver.find_element(By.NAME, byear).send_keys(UserInputs_data.birth_year)
+        marriage_day_field = driver.find_element(By.NAME, mday).send_keys(UserInputs_data.marriage_day)
+        marriage_month_field = driver.find_element(By.NAME, mmonth).send_keys(UserInputs_data.marriage_month)
+        marriage_year_field = driver.find_element(By.NAME, myear).send_keys(UserInputs_data.marriage_year)
+        city_field = driver.find_element(By.NAME, city).send_keys(UserInputs_data.city)
+        if UserInputs_data.nationality == 1:
+            nationlity = driver.find_element(By.ID, TagsId.nationality_iran).click()
+        elif UserInputs_data.nationality == 2:
+            nationlity = driver.find_element(By.ID, TagsId.nationality_afghan).click()
+        elif UserInputs_data.nationality == 3:
+            nationlity = driver.find_element(By.ID, TagsId.nationality_no_religious).click()
+        
       
     except ValueError as e:
         print(f"something went wrong find and enter level: {e}")

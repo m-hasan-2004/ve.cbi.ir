@@ -32,6 +32,10 @@ from Modules.MainModules import (
 ncode = TagsId.national_code
 url = TagsId.url
 Phone = TagsId.phone_number
+Phone_Alternetive = TagsId.phone_number_alternetive #
+Nationality_1 = TagsId.nationality_iran #
+Nationality_2 = TagsId.nationality_afghan #
+Nationality_3 = TagsId.nationality_no_religious #
 birthd = TagsId.birth_day
 birthm = TagsId.birth_month
 birthy = TagsId.birth_year
@@ -40,8 +44,7 @@ marriagem = TagsId.marriage_month
 marriagey = TagsId.marriage_year
 city = TagsId.city
 captchafieldp2 = TagsId.captcha_field_page2
-sleep_1 = 10
-sleep_2 = 10
+wait = 10
 
 # second page submit variables
 submitf1 = TagsId.submit_button_page2
@@ -54,8 +57,7 @@ start_all = time.time()
 if __name__ == "__main__":
     data_f_and_e(
         url, ncode, Phone, birthd, birthm, birthy, marriaged,
-        marriagem, marriagey, city, sleep_1,
-        sleep_2)
+        marriagem, marriagey, city, wait)
     captcha_down()
     submit_end(submitf1, solve_captcha())
     end_all = time.time()     
