@@ -4,6 +4,7 @@ a module that contains a class of HTML Elements location for user data to be ent
     * this module is imported by the main .py file to use the contents of class
 """
 
+
 class TagsId:
     """
     A class that contains attributes of HTML Elements location for user data to be entered.

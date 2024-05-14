@@ -12,9 +12,11 @@ import urllib.request
 from .HTMLTagsId import TagsId # HTML Tags
 from .DataInputs import UserInputs # Inputs that user should enter
 
+
 # Functions 
 def chrome_location_func(chrome_location):
     return chrome_location
+
 
 def second_page_data_finding_entring(
     url: str, ncode: str, phone: str, bday: str, bmonth: str, byear: str,
@@ -46,10 +48,10 @@ def second_page_data_finding_entring(
             nationlity = driver.find_element(By.ID, TagsId.nationality_afghan).click()
         elif UserInputs_data.nationality == 3:
             nationlity = driver.find_element(By.ID, TagsId.nationality_no_religious).click()
-        
-      
+
     except ValueError as e:
         print(f"something went wrong find and enter level: {e}")
+
 
 def second_page_captcha_downloader():
     # Wait until the captcha image element is present
@@ -64,7 +66,7 @@ def second_page_captcha_downloader():
     captcha_image_url = captcha_image_element.get_attribute('src')
 
     # Download the captcha image
-    urllib.request.urlretrieve(str(captcha_image_url), '/home/hasan/Desktop/py/Automated-VECBI/CaptchasPic/captcha_page2.jpg')
+    urllib.request.urlretrieve(str(captcha_image_url), '/home/hasan/Desktop/python/ve.cbi.ir/captcha_page2.jpg')
 
     print("Captcha image downloaded successfully.")
 
@@ -90,11 +92,12 @@ def second_page_submit_and_captcha(submitf1: str, captcha_result):
         # Close the browser window
         driver.quit()
 
+
 # UserInputs_data class -> instance creating
 UserInputs_data = UserInputs()   
 
 # getting the chrome location
-Chrome_Location = chrome_location_func('/home/hasan/Desktop/py/Automated-VECBI/NeededFiles/chromedriver')
+Chrome_Location = chrome_location_func(r'/home/mmdhasan/Desktop/python/ve.cbi.ir/NeededFiles/chromedriver')
 
 
 # service and driver

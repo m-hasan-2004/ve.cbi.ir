@@ -3,6 +3,8 @@
 a module that contains a class for user using the app to inputs data
     * Have methods to verify given data
 """
+
+
 class UserInputs:
     """
     A class that contains attributes of user signup for a loan.
@@ -95,7 +97,8 @@ class UserInputs:
                 return user_input
             else:
                 print("check again.")
-    @staticmethod                
+
+    @staticmethod
     def get_nationality(prompt: str) -> int:
         """Get the nationality of user and perform validation
         1 - iranian
